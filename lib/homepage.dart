@@ -16,6 +16,10 @@ class Homepage extends StatelessWidget{
         centerTitle:true,
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        
         children: [
           Text(
             "This is text",
@@ -28,7 +32,7 @@ class Homepage extends StatelessWidget{
           )
         ],
       )
-      
+
       // body: Center(
       //   child: Container(
       //     padding: EdgeInsets.only(top: 10.0, left: 10.0),

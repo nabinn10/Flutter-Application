@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/class.dart';
 import 'package:myapp/homepage.dart';
+import 'package:myapp/rowcolumn.dart';
+import 'package:myapp/rowlearn.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home: RowColumn(),
     );
   }
 }
