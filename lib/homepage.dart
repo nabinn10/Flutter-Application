@@ -15,27 +15,42 @@ class Homepage extends StatelessWidget{
           )),
         centerTitle:true,
       ),
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.only(top: 10.0, left: 10.0),
-          width:300,
-          height:500,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(50),
-              bottomRight: Radius.circular(50))
+      body: Column(
+        children: [
+          Text(
+            "This is text",
+            style: TextStyle(fontSize: 28),
           ),
-          alignment: Alignment.bottomRight,
-          child:Text(
-            "Hello World",
-            style: TextStyle(
-              color: Colors.black,
-            ),
+          Container(
+            width: 200,
+            height: 200,
+            color: Colors.blue,
           )
+        ],
+      )
+      
+      // body: Center(
+      //   child: Container(
+      //     padding: EdgeInsets.only(top: 10.0, left: 10.0),
+      //     width:300,
+      //     height:500,
+      //     decoration: BoxDecoration(
+      //       color: Colors.white,
+      //       borderRadius: BorderRadius.only(
+      //         topLeft: Radius.circular(50),
+      //         bottomRight: Radius.circular(50))
+      //     ),
+      //     alignment: Alignment.bottomRight,
+      //     child:Text(
+      //       "Hello World",
+      //       style: TextStyle(
+      //         color: Colors.black,
+      //       ),
+      //     ) 
           
-        ),
-      ),
+          
+      //   ),
+      // ),
 
     );
   }
