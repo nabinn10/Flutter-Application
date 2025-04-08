@@ -6,35 +6,66 @@ class RowColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.red,
-        title: Text("This is app Bar", style: TextStyle(color: Colors.white)),
+        title: const Text("This is App Bar", style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
       body: Center(
         child: Container(
-        height: 550,
-        width: 350,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 216, 207, 207),
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          width: 350,
+          height: 400,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: const Color.fromARGB(255, 227, 169, 169),
+          ),
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // First Column
+              Container(
+                child: Column(
+                  children: [
+                    Container(
+                      width: 150,
+                      height: 150,
+                      margin: const EdgeInsets.only(top: 20),
+                      color: Colors.blue,
+                    ),
+                    Container(
+                      width: 150,
+                      height: 50,
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'Text Area',
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Container(
+                      width: 150,
+                      height: 50,
+                      margin: const EdgeInsets.only(top: 20),
+                      color: Colors.purple,
+                    ),
+                  ],
+                ),
+              ),
+              
+              Container(width: 20),
+              // Second Column (Takes Remaining Space)
+              Expanded(
+                
+                
+                child: Container(
+                  height: 250,
+                  color: Colors.green,
+                ),
+              ),
+            ],
+          ),
         ),
-       child: Row(
-        children: [
-          Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              color: Colors.indigo,
-              borderRadius: BorderRadius.all(Radius.circular(20))
-            ),
-          )
-        ],
-       ),
-       
-      ),),
-      
-
+      ),
     );
   }
 }
