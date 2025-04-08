@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/class.dart';
+import 'package:myapp/classwork.dart';
+import 'package:myapp/flower.dart';
 import 'package:myapp/homepage.dart';
 import 'package:myapp/rowcolumn.dart';
 import 'package:myapp/rowlearn.dart';
@@ -21,8 +23,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home: Images(),
-    );
+      home: FirstPage(),
+     );
   }
 }
 
