@@ -81,6 +81,39 @@ class FirstPage extends StatelessWidget {
                 ),
               ),),
 
+            const SizedBox(height: 20)
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Products", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.star, color: Colors.red, size: 24,
+                    ),
+                    Text(
+                      "4.8", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                    ),
+                    Text("(268 Reviews)", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24), )
+                  ],
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 10),
+
+            Text("This is the place for description", style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18),),
+
+            TextButton(onPressed: () {}, child: Text("Read More", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.red),)),
+
+             const SizedBox(height: 10),
+
+             Row(
+              children: [
+                
+              ],
+             )
               
             ],
           ),
