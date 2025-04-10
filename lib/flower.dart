@@ -81,7 +81,7 @@ class FirstPage extends StatelessWidget {
                 ),
               ),),
 
-            const SizedBox(height: 20)
+            const SizedBox(height: 20),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -109,11 +109,7 @@ class FirstPage extends StatelessWidget {
 
              const SizedBox(height: 10),
 
-             Row(
-              children: [
-                
-              ],
-             )
+            
               
             ],
           ),

@@ -16,23 +16,7 @@ class Classwork extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          blurRadius: 4,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: IconButton(
-                      icon: const Icon(Icons.arrow_back),
-                      onPressed: () {},
-                    ),
-                  ),
+                  _buildIconButton(Icons.arrow_back),
                   const Text(
                     'Details',
                     style: TextStyle(
@@ -40,28 +24,12 @@ class Classwork extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          blurRadius: 4,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: IconButton(
-                      icon: const Icon(Icons.favorite_border),
-                      onPressed: () {},
-                    ),
-                  ),
+                  _buildIconButton(Icons.favorite_border),
                 ],
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               // Plant image
               Center(
                 child: Container(
@@ -71,21 +39,16 @@ class Classwork extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/images/loho.png',
-                        height: 250,
-                        fit: BoxFit.cover,
-                      ),
-                    ],
+                  child: Image.asset(
+                    'assets/images/loho.png',
+                    height: 250,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               // Plant name and rating
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -100,6 +63,7 @@ class Classwork extends StatelessWidget {
                   Row(
                     children: [
                       const Icon(Icons.star, color: Colors.teal, size: 20),
+                      const SizedBox(width: 4),
                       const Text(
                         '4.8',
                         style: TextStyle(
@@ -118,9 +82,9 @@ class Classwork extends StatelessWidget {
                   ),
                 ],
               ),
-              
+
               const SizedBox(height: 10),
-              
+
               // Plant description
               Text(
                 'Ageratum is a genus of 40 to 60 tropical and warm temperate flowering annuals and perennials from the family Asteraceae, tribe Eupatorieae. Most species are native to Central America...',
@@ -129,7 +93,7 @@ class Classwork extends StatelessWidget {
                   fontSize: 14,
                 ),
               ),
-              
+
               TextButton(
                 onPressed: () {},
                 child: const Text(
@@ -140,9 +104,9 @@ class Classwork extends StatelessWidget {
                   ),
                 ),
               ),
-              
+
               const SizedBox(height: 10),
-              
+
               // Plant specifications
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -153,9 +117,9 @@ class Classwork extends StatelessWidget {
                   _buildSpecItem('Humidity', '82%'),
                 ],
               ),
-              
+
               const SizedBox(height: 30),
-              
+
               // Price and add to cart button
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -179,22 +143,20 @@ class Classwork extends StatelessWidget {
                       ),
                     ],
                   ),
-                  
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.teal,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 15),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
+
+                  SizedBox(
+                    width: 160, // Adjusted button width
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.teal,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        child: const Text('Add to Cart', style: TextStyle(fontSize: 16)),
                       ),
+                      child: const Text('Add to Cart', style: TextStyle(fontSize: 16)),
                     ),
                   ),
                 ],
@@ -205,7 +167,27 @@ class Classwork extends StatelessWidget {
       ),
     );
   }
-  
+
+  Widget _buildIconButton(IconData icon) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: IconButton(
+        icon: Icon(icon),
+        onPressed: () {},
+      ),
+    );
+  }
+
   Widget _buildSpecItem(String title, String value) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
