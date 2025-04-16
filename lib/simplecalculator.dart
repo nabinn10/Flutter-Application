@@ -104,7 +104,19 @@ class _SimplecalculatorState extends State<Simplecalculator> {
           }, label: Text("SUBTRACT"), icon: Icon(Icons.remove),),
 
 
-         
+          // multiply 
+          
+          
+          
+          FilledButton.tonalIcon(onPressed: () {
+            // Perform addition operation here
+            double num1 = double.parse(dummyTextController1.text);
+            double num2 = double.parse(dummyTextController2.text);
+            double result = num1 / num2;
+            setState(() {
+              displayText = "Result: $result";
+            });
+            }, label: const Text("DIVIDE"), icon: const Icon(Icons.horizontal_rule),),
           ],
           
         ),

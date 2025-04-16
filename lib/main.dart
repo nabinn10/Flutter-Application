@@ -4,6 +4,7 @@ import 'package:myapp/button.dart';
 import 'package:myapp/class.dart';
 import 'package:myapp/classwork.dart';
 import 'package:myapp/flower.dart';
+import 'package:myapp/form.dart';
 import 'package:myapp/homepage.dart';
 import 'package:myapp/rowcolumn.dart';
 import 'package:myapp/rowlearn.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home: Simplecalculator(),
+      home: FormPage(),
      );
   }
 }
