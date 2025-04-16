@@ -8,6 +8,7 @@ class Textfieldexample extends StatefulWidget {
 }
 
 class _TextfieldexampleState extends State<Textfieldexample> {
+  
   final TextEditingController dummyTextController = TextEditingController();
   String displayText = "";
 
