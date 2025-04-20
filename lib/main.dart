@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/HotelUI.dart';
 import 'package:myapp/TextFieldExample.dart';
 import 'package:myapp/button.dart';
 import 'package:myapp/class.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home: const BookTrip(),
+      home:  HotelUI(),
     );
   }
 }
