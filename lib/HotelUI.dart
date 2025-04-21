@@ -43,10 +43,7 @@ class _HotelUIState extends State<HotelUI> {
                           SizedBox(height: 4),
                           Text(
                             '123 Main Street, Cityville',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey,
-                            ),
+                            style: TextStyle(fontSize: 14, color: Colors.grey),
                           ),
                         ],
                       ),
@@ -193,9 +190,15 @@ class _HotelUIState extends State<HotelUI> {
                       children: [
                         _buildRightSideMenuItem('All Hotels', Icons.hotel),
                         _buildRightSideMenuItem('Resorts', Icons.beach_access),
-                        _buildRightSideMenuItem('Beachfront Hotels', Icons.sunny),
+                        _buildRightSideMenuItem(
+                          'Beachfront Hotels',
+                          Icons.wb_sunny,
+                        ),
                         _buildRightSideMenuItem('Luxury Hotels', Icons.star),
-                        _buildRightSideMenuItem('Budget Hotels', Icons.attach_money),
+                        _buildRightSideMenuItem(
+                          'Budget Hotels',
+                          Icons.attach_money,
+                        ),
                       ],
                     ),
                   ),
@@ -205,28 +208,104 @@ class _HotelUIState extends State<HotelUI> {
                 // Recommended Hotels Title
                 const Text(
                   'Recommended Hotels',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
 
                 // Vertically Scrollable Recommended Hotels List
                 Column(
                   children: [
-                    _buildHotelRecommendation('Hotel Paradise', 'assets/images/pp.png'),
-                    _buildHotelRecommendation('Ocean View Resort', 'assets/images/pp.png'),
-                    _buildHotelRecommendation('Luxury Inn', 'assets/images/pp.png'),
-                    _buildHotelRecommendation('Mountain Retreat', 'assets/images/pp.png'),
+                    _buildHotelRecommendation(
+                      'Hotel Paradise',
+                      'assets/images/pp.png',
+                    ),
                   ],
                 ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      'Near Locations',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "See all",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.asset(
+                        "assets/images/pp.png",
+                        height: 100,
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text(
+                            "Hotel Hotel",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                            ),
+                            Icon(Icons.favorite_border),
+                          ],
+                          ),
+                          const SizedBox(height: 4),
+                          const Text(
+                          "This is the location of hotel",
+                          style: TextStyle(fontSize: 14, color: Colors.grey),
+                          ),
+                          const SizedBox(height: 20),
+                          Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text("RS. 200", style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text("RS. 200", style: TextStyle(),),
 
+                            Row(
+                            children:  [
+                              Icon(Icons.star, color: Colors.amber, size: 20),
+                              SizedBox(width: 4),
+                              Text(
+                              "4.2",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                              ),
+                            ],
+                            ),
+                          ],
+                          ),
+                        ],
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
         ),
-        
       ),
     );
   }
@@ -250,7 +329,10 @@ class _HotelUIState extends State<HotelUI> {
               const SizedBox(height: 8),
               Text(
                 title,
-                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
                 textAlign: TextAlign.center,
               ),
             ],
@@ -278,7 +360,10 @@ class _HotelUIState extends State<HotelUI> {
               const SizedBox(width: 10),
               Text(
                 title,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),
@@ -303,7 +388,9 @@ class _HotelUIState extends State<HotelUI> {
           child: Column(
             children: [
               ClipRRect(
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(15),
+                ),
                 child: Image.asset(
                   imagePath,
                   width: double.infinity,
@@ -316,7 +403,10 @@ class _HotelUIState extends State<HotelUI> {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   title,
-                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ),
