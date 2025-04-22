@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class HotelUI extends StatefulWidget {
@@ -117,65 +119,66 @@ class _HotelUIState extends State<HotelUI> {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: isSmallDevice
-                        ? Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'Travel Smart, Stay Comfortable',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              const Text(
-                                'Experience the best travel.',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              const SizedBox(height: 20),
-                              Image.asset(
-                                'assets/images/pp.png',
-                                height: 100,
-                                width: 100,
-                                fit: BoxFit.cover,
-                              ),
-                            ],
-                          )
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    'Travel Smart, Stay Comfortable',
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                    child:
+                        isSmallDevice
+                            ? Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Travel Smart, Stay Comfortable',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    'Experience the best travel.',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.grey,
-                                    ),
+                                ),
+                                const SizedBox(height: 8),
+                                const Text(
+                                  'Experience the best travel.',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey,
                                   ),
-                                ],
-                              ),
-                              Image.asset(
-                                'assets/images/pp.png',
-                                height: 100,
-                                width: 100,
-                                fit: BoxFit.cover,
-                              ),
-                            ],
-                          ),
+                                ),
+                                const SizedBox(height: 20),
+                                Image.asset(
+                                  'assets/images/pp.png',
+                                  height: 100,
+                                  width: 100,
+                                  fit: BoxFit.cover,
+                                ),
+                              ],
+                            )
+                            : Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Travel Smart, Stay Comfortable',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(height: 8),
+                                    Text(
+                                      'Experience the best travel.',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Image.asset(
+                                  'assets/images/pp.png',
+                                  height: 100,
+                                  width: 100,
+                                  fit: BoxFit.cover,
+                                ),
+                              ],
+                            ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -212,7 +215,7 @@ class _HotelUIState extends State<HotelUI> {
                 ),
                 const SizedBox(height: 10),
 
-                // Vertically Scrollable Recommended Hotels List
+                // Hotel Recommendation List
                 Column(
                   children: [
                     _buildHotelRecommendation(
@@ -222,23 +225,27 @@ class _HotelUIState extends State<HotelUI> {
                   ],
                 ),
                 const SizedBox(height: 20),
+
+                // Near Locations Header
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Text(
                       'Near Locations',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Text(
                       "See all",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.blue,
-                      ),
+                      style: TextStyle(fontSize: 14, color: Colors.blue),
                     ),
                   ],
                 ),
                 const SizedBox(height: 20),
+
+                // Near Locations Card
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -257,50 +264,132 @@ class _HotelUIState extends State<HotelUI> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                            "Hotel Hotel",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                            ),
-                            Icon(Icons.favorite_border),
-                          ],
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Text(
+                                "Hotel Hotel",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Icon(Icons.favorite_border),
+                            ],
                           ),
                           const SizedBox(height: 4),
                           const Text(
-                          "This is the location of hotel",
-                          style: TextStyle(fontSize: 14, color: Colors.grey),
+                            "This is the location of hotel",
+                            style: TextStyle(fontSize: 14, color: Colors.grey),
                           ),
                           const SizedBox(height: 20),
                           Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text("RS. 200", style: TextStyle(fontWeight: FontWeight.bold),),
-                            Text("RS. 200", style: TextStyle(),),
-
-                            Row(
-                            children:  [
-                              Icon(Icons.star, color: Colors.amber, size: 20),
-                              SizedBox(width: 4),
-                              Text(
-                              "4.2",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: const [
+                                  Text(
+                                    "RS. 200",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                  SizedBox(width: 8),
+                                  Text(
+                                    "RS. 150",
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.red,
+                                      decoration: TextDecoration.lineThrough,
+                                    ),
+                                  ),
+                                ],
                               ),
+                              Row(
+                                children: const [
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                    size: 20,
+                                  ),
+                                  SizedBox(width: 4),
+                                  Text(
+                                    "4.2",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
-                            ),
-                          ],
                           ),
-                        ],
                         ],
                       ),
                     ),
                   ],
+                ),
+
+                // sized box
+                const SizedBox(height: 20),
+
+                // List style
+                SizedBox(
+                  // width: ,
+                  child: Card(
+                    color: const Color.fromARGB(255, 225, 222, 213),
+                          
+                    child: ListTile(
+                      contentPadding: EdgeInsets.all(0),
+                      
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset(
+                          "assets/images/pp.png",
+                          height: 100,
+                          width: 100,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            "Bagaicha Hotel",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 4),
+                          Text("Subtitle"),
+                            Padding(
+                            padding: const EdgeInsets.only(top: 20),
+                            child: const Text("RS. 300"),
+                            ),
+                        ],
+                      ),
+                      trailing: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Icon(Icons.favorite, color: Colors.red),
+                          SizedBox(height: 4),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.star, color: Colors.amber),
+                              SizedBox(width: 4),
+                              Text(
+                                "4.3",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -316,14 +405,12 @@ class _HotelUIState extends State<HotelUI> {
       elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: InkWell(
-        onTap: () {
-          print('$title tapped');
-        },
+        onTap: () {},
         borderRadius: BorderRadius.circular(15),
         child: SizedBox(
           width: 70,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Icon(icon, size: 40, color: Colors.blue),
               const SizedBox(height: 8),
