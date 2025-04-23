@@ -367,8 +367,8 @@ class _HotelUIState extends State<HotelUI> {
                         ],
                       ),
                       trailing: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        // crossAxisAlignment: CrossAxisAlignment.center,
                         children: const [
                           Icon(Icons.favorite, color: Colors.red),
                           SizedBox(height: 4),
@@ -376,13 +376,16 @@ class _HotelUIState extends State<HotelUI> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Icon(Icons.star, color: Colors.amber),
-                              SizedBox(width: 4),
+                              
                               Text(
-                                "4.3",
+                                "4.3 k",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
+                                
+                                  
                                 ),
+                                
                               ),
                             ],
                           ),
