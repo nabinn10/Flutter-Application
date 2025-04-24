@@ -9,7 +9,8 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
-  // final GlobalKey<FormState> _nameFromKey = GlobalKey();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final List<String> _fruits = [];
   @override
  Widget build(BuildContext context) {
     return  Scaffold(
@@ -19,45 +20,67 @@ class _FirstScreenState extends State<FirstScreen> {
         backgroundColor: const Color.fromARGB(255, 28, 4, 4),
       ),
       body: Center(
-        child: Column(
-         mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Form(child: Column(
-              children: [
-                // text form filed
-                TextFormField(
-                  validator: (value)
-                  {
-                    if (value == null || value.isEmpty )
-                    {
-                      return "Please Provide fruits name";
-                    } 
-                    else if (value.length<3)
-                    {
-                      return "Provide valid fruits name";
-                    }
-                    else 
-                    {
-                      return null;
-                    }
-                  },
-                  decoration: InputDecoration(
-                    
-                    border: OutlineInputBorder(),
-                    labelText: "Fruits"
-                    
-                  ),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // TextFormField for input
+              TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please Provide fruits name";
+                  } else if (value.length < 3) {
+                    return "Provide valid fruits name";
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  if (value != null) {
+                    setState(() {
+                      _fruits.add(value);
+                    });
+                  }
+                },
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Fruits",
                 ),
-                FilledButton(onPressed: () {
-                  
-                }, child: Text("Add Fruits"))
-              ],
-            )),
-            // Text("The first Screen body"),
-            // FilledButton(onPressed: () { 
-            //   Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecondScreen(name: "Nabin",)));
-            // }, child: Text("First Button")),
-          ],
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState != null &&
+                      _formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                  }
+                },
+                child: const Text("Add Fruits"),
+              ),
+               const SizedBox(height: 20),
+              ElevatedButton(onPressed: () {
+               Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecondScreen(name: _fruits,)));
+
+              }, child: Text("Move")),
+              const SizedBox(height: 20),
+              // Display the list of fruits
+              Container(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: _fruits
+                      .map(
+                        (fruit) => Text(
+                          fruit,
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       
