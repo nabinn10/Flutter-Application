@@ -62,23 +62,23 @@ class _FirstScreenState extends State<FirstScreen> {
               ElevatedButton(onPressed: () {
                Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecondScreen(name: _fruits,)));
 
-              }, child: Text("Move")),
+              }, 
+              child: Text("Move")),
               const SizedBox(height: 20),
+
+             
+           
               // Display the list of fruits
               Container(
                 padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: _fruits
-                      .map(
-                        (fruit) => Text(
-                          fruit,
-                          style: const TextStyle(fontSize: 16),
-                        ),
-                      )
-                      .toList(),
-                ),
+                child:
+                ListView.builder(itemBuilder: (ctx,i)=> Text(_fruits[i]),
+                itemCount: _fruits.length,
+                
+                )
+                
               ),
+              
             ],
           ),
         ),

@@ -15,13 +15,21 @@ class SecondScreen extends StatelessWidget {
       body: Center(
         child: Column(
          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(name.join(" ")),
-            Text("The first Screen body"),
-            FilledButton(onPressed: () {
-              Navigator.of(context).pop();
-            }, child: Text("Second Button"))
-          ],
+         child: FilledButton.tonal(onPressed: () {
+          Navigator.of(context)
+         }, child: child)
+         children: [
+           SizedBox(
+             height: 200,
+             child: ListView.builder(
+               itemBuilder: (ctx, i) => Text(name[i]),
+               itemCount: name.length,
+             ),
+           ),
+           
+           
+         ],
+         
         ),
       ),
     );
