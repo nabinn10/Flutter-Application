@@ -14,6 +14,7 @@ import 'package:myapp/rowcolumn.dart';
 import 'package:myapp/rowlearn.dart';
 import 'package:myapp/image.dart';
 import 'package:myapp/simplecalculator.dart';
+import 'package:myapp/stateful_lifecycle_example.dart';
 
 
 // import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
-      home:  FirstScreen(),
+      home:  StatefullWidgetExample(),
     );
   }
 }
